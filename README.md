@@ -42,7 +42,7 @@ A structured collection of my Data Structures & Algorithms solutions in **C++**,
 ```
 DSA/
 │
-├── Arrays/
+
 ├── Binary Search/
 ├── Two Pointers/
 ├── Sliding Window/
