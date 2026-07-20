@@ -16,8 +16,6 @@ A structured collection of my Data Structures & Algorithms solutions in **C++**,
 
 | Topic | Status |
 |--------|--------|
-| Arrays | ✅ |
-| Binary Search | ✅ |
 | Two Pointers | ✅ |
 | Sliding Window | ✅ |
 | Prefix Sum | ✅ |
