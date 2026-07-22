@@ -11,12 +11,12 @@ Difficulty:
 Medium
 
 Approach:
-- Since the array is circular, traverse it twice from right to left
-  (from index 2*n-1 to 0).
-- Use a monotonic decreasing stack to store potential next greater elements.
-- While the top of the stack is less than or equal to the current element,
-  remove it because it cannot be the next greater element.
-- During the second pass (when i < n), if the stack is not empty,
+- Since the array is circular, traverse it from n-2 to 0 to push the every element in stack except the last index.
+  (from index n-2 to 0).
+- now traverse from last index to 0th index.
+- while stack is not empty and st.top <= nums[i], st.pop.
+  if stack is empty then push the index of array res with -1,
+else push st.top in res[i];
   the top of the stack is the next greater element for the current index.
 - Push the current element onto the stack before moving to the next index.
 
@@ -31,20 +31,25 @@ O(n)
     public:
     vector<int> nextGreaterElements(vector<int>& nums) {
           int n=nums.size();
-        vector<int> res(n,-1);
+        vector<int> res(n)
       
         
         stack<int>st;
+        for(int i=n-2;i>=0;i--){
+            st.push(nums[i]);
+        }
         
-        for(int i=2*n-1;i>=0;i--){
-            while(!st.empty() && st.top() <=nums[i%n]){
+        for(int i=n-1;i>=0;i--){
+            while(!st.empty() && st.top() <=nums[i]){
                 st.pop();
             }
-            if(i<n){
-                if(!st.empty())
+            if(st.empty()){
+                
+                res[i]=-1
+            }else{
                 res[i]=st.top();
             }
-            st.push(nums[i%n]);
+            st.push(nums[i]);
         }
         return res;
     }
